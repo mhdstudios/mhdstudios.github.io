@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MHD Studios · Small apps for real communities</title>
+<meta name="description" content="MHD Studios is an independent studio building simple, privacy-first apps: Halal Compass, Frog CPL and P4A Courts.">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="MHD Studios">
+<meta property="og:description" content="Small apps for real communities.">
+<meta property="og:url" content="https://mhdstudios.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<header class="nav"><div class="nav-in">
+  <a class="brand" href="#top" aria-label="MHD Studios home">
+    <span class="mark" aria-hidden="true">M</span>
+    <span>MHD Studios</span>
+  </a>
+  <nav>
+    <a href="#apps">Apps</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div></header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow reveal">Independent app studio</p>
+    <h1 class="reveal">Small apps for<br><span class="grad">real communities.</span></h1>
+    <p class="lead reveal">We build simple, privacy-first tools for everyday needs, from finding certified halal food
+      near you to running a fair Saturday morning of pickleball.</p>
+    <div class="cta reveal">
+      <a class="btn primary" href="#apps">See our apps</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="apps" class="apps">
+    <h2 class="reveal">Apps</h2>
+    <div class="grid">
+      <a class="card reveal" href="https://halalcompass.org" rel="noopener">
+        <div class="card-top">
+          <img src="img/halal-compass.png" alt="" width="56" height="56">
+          <span class="pill live">Live</span>
+        </div>
+        <h3>Halal Compass</h3>
+        <p>Find certified halal restaurants, grocers and butchers near you. Every listing comes from a
+          certifier (HMS or HFSAA), never from guesses.</p>
+        <span class="link">halalcompass.org <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="card reveal" href="https://frog.mhdstudios.com" rel="noopener">
+        <div class="card-top">
+          <div class="icon frog" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M3 15c0-3.3 4-6 9-6s9 2.7 9 6-4 5-9 5-9-1.7-9-5Z"/><path d="M9 15.5c1.8 1.3 4.2 1.3 6 0" class="smile"/></svg></div>
+          <span class="pill">League</span>
+        </div>
+        <h3>Frog CPL</h3>
+        <p>Team stats, pair records, lineups and availability for the Frog pickleball league teams,
+          refreshed automatically.</p>
+        <span class="link">frog.mhdstudios.com <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="card reveal" href="https://courts.mhdstudios.com" rel="noopener">
+        <div class="card-top">
+          <img src="img/p4a-courts.png" alt="" width="56" height="56">
+          <span class="pill">Open play</span>
+        </div>
+        <h3>P4A Courts</h3>
+        <p>Check-in, fair court rotation and a sit-out ladder for Saturday open play, synced live to
+          every phone at the courts.</p>
+        <span class="link">courts.mhdstudios.com <i aria-hidden="true">→</i></span>
+      </a>
+    </div>
+    <p class="more reveal">More on the way.</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="reveal">How we build</h2>
+    <div class="values">
+      <div class="value reveal">
+        <h3>Private by default</h3>
+        <p>No ads, no tracking, no accounts unless an app truly needs one. Your data stays yours.</p>
+      </div>
+      <div class="value reveal">
+        <h3>Made for a real need</h3>
+        <p>Every app starts with a problem a real group of people has, and we keep it focused on that.</p>
+      </div>
+      <div class="value reveal">
+        <h3>Fast and simple</h3>
+        <p>Pages that load instantly, work on any phone and don't need a manual.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact reveal">
+    <h2>Say hello</h2>
+    <p>Feedback, a bug, or an idea for an app? We'd love to hear it.</p>
+    <a class="btn primary" href="mailto:hello@mhdstudios.com">hello@mhdstudios.com</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© <span id="year">2026</span> MHD Studios</span>
+  <span>This site uses no cookies or tracking.</span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Fade items in as they scroll into view (skipped when the user prefers reduced motion).
+  const items = document.querySelectorAll('.reveal');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px' });
+    items.forEach((el, i) => { el.style.setProperty('--d', (i % 3) * 80 + 'ms'); io.observe(el); });
+  }
+</script>
+</body>
+</html>
